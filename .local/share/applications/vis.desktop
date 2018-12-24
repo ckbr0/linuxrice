@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Vis
+Exec=/usr/local/bin/st -e vis %u

@@ -1,14 +1,14 @@
 #!/bin/sh
 
 export PATH="$PATH:$HOME/.scripts"
-export EDITOR="nvim"
+export EDITOR="vis"
 export TERMINAL="st"
-export BROWSER="chromium"
+export BROWSER="firefox"
 export READER="zathura"
 
 [ -f ~/.bashrc ] && source ~/.bashrc
 
-if [ "$(tty)" == "/dev/tty1" ]; then
+if [ -z $DISPLAY ] && [ "$(tty)" == "/dev/tty1" ]; then
 	pgrep -x dmw || exec startx
 fi
 

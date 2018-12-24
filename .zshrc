@@ -103,3 +103,6 @@ alias v=vis
 alias sv="sudo vis"
 alias n=nnn
 alias sn="sudo nnn"
+
+. "${HOME}/.cache/wal/colors.sh"
+
