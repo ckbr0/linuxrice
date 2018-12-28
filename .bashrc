@@ -1,4 +1,4 @@
-# .bashrc
+#!/bin/bash
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -11,7 +11,9 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 alias e='$EDITOR'
 alias v=vis
 alias sv='sudo vis'
-alias n=nnn
+
+[ -f ~/.scripts/quitcd.bash ] && source ~/.scripts/quitcd.bash
+
 alias sn='sudo nnn'
 
 alias ls='ls -hN --color=auto --group-directories-first'

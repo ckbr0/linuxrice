@@ -1,10 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 export PATH="$PATH:$HOME/.scripts"
 export EDITOR="vis"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
+
+export NNN_USE_EDITOR=1
 
 [ -f ~/.bashrc ] && source ~/.bashrc
 

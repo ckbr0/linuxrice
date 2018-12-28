@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Nnn
+Exec=/usr/local/bin/st -e nnn %u
