@@ -7,6 +7,7 @@ export BROWSER="firefox"
 export READER="zathura"
 
 export NNN_USE_EDITOR=1
+export DISABLE_FILE_OPEN_ON_NAV=1
 
 [ -f ~/.bashrc ] && source ~/.bashrc
 
