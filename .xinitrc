@@ -2,4 +2,6 @@
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-exec dwm
+. ~/.cache/wal/colors.sh
+
+exec dwm -nb "$background" -nf "$foreground" -sbo "white"

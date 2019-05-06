@@ -9,11 +9,11 @@ shopt -s autocd #Allows you to cd into directory merely by typing the directory 
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 alias e='$EDITOR'
-alias v=vis
-alias sv='sudo vis'
+alias v=nvim
+alias sv='sudo nvim'
 
 [ -f ~/.scripts/quitcd.bash ] && source ~/.scripts/quitcd.bash
-
+[ -f ~/.scripts/nnn-completion.bash ] && source ~/.scripts/nnn-completion.bash
 alias sn='sudo nnn'
 
 alias ls='ls -hN --color=auto --group-directories-first'

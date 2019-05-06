@@ -2,12 +2,7 @@
 inode/directory=nnn.desktop
 x-scheme-handler/magnet=transmission-remote.desktop;
 x-scheme-handler/mailto=mutt.desktop;
-text/plain=vis.desktop;
+text/plain=neovim.desktop;
 application/pdf=zathura.desktop;
-application/x-gzip=archive.desktop;
-application/zip=archive.desktop;
-application/x-rar=archive.desktop;
-application/x-7z-compressed=archive.desktop;
-image/png=feh.desktop;
-image/jpeg=feh.desktop;
-image/gif=gif.desktop;
+image/png=sxiv.desktop;
+image/jpeg=sxiv.desktop;

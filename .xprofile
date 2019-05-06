@@ -11,3 +11,5 @@ wal -R
 slstatus &
 
 compton -b
+
+udiskie &

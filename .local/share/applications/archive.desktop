@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Archive
-Exec=/usr/local/bin/st -e listarchive.sh %u
