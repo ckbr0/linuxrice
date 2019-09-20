@@ -1,9 +1,11 @@
 #!/bin/bash
 
-export GOPATH="$HOME/Razvoj/go"
+export RAZVOJ="$HOME/razvoj"
+export GOPATH="$RAZVOJ/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$HOME/.scripts:$GOBIN/"
-export EDITOR="vis"
+export PATH="$PATH:$HOME/.local/bin:$GOBIN/"
+
+export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"

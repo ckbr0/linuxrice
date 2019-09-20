@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Update wal with a new wallpaper every day
+
+lastupdate_file="$HOME/.cache/wal/lastupdate"
+wall_dir=$1
+tmp_file="/tmp/wall_files"
+
+CURRENT_DATE=$(date +"%Y%m%d")
+
+[ ! -f $lastupdate_file ] && echo 0 > $lastupdate_file
+
+PREVIOUSE_DATE=$(cat $lastupdate_file)
+
+NEXT_UPDATE=$(expr $PREVIOUSE_DATE + 1)
+
+if [ $CURRENT_DATE -ge $NEXT_UPDATE ]; then
+	find $wall_dir -type f > $tmp_file
+	wal -i $(shuf -n 1 $tmp_file)
+	rm $tmp_file
+	echo $CURRENT_DATE > $lastupdate_file
+else
+	wal -R
+fi

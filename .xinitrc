@@ -2,6 +2,7 @@
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-. ~/.cache/wal/colors.sh
-
-exec dwm -nb "$background" -nf "$foreground" -sbo "white"
+# The loop restarts dwm when you quit
+while :; do
+	ssh-agent dwm || break
+done

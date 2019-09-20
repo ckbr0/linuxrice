@@ -6,10 +6,6 @@ xset s 300 300 +dpms
 xset dpms 300 300 300
 xsidle.sh slock &
 
-wal -R
-
-slstatus &
+updatewal $HOME/slike/ozadja
 
 compton -b
-
-udiskie &
