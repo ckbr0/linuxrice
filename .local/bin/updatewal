@@ -15,10 +15,15 @@ PREVIOUSE_DATE=$(cat $lastupdate_file)
 NEXT_UPDATE=$(expr $PREVIOUSE_DATE + 1)
 
 if [ $CURRENT_DATE -ge $NEXT_UPDATE ]; then
-	find $wall_dir -type f > $tmp_file
+	if [ -d $wall_dir ]; then
+		find $wall_dir -type f > $tmp_file
+	else
+		echo "$HOME/.config/wall.jpg" > $tmp_file
+	fi
 	wal -i $(shuf -n 1 $tmp_file)
 	rm $tmp_file
 	echo $CURRENT_DATE > $lastupdate_file
+
 else
 	wal -R
 fi
