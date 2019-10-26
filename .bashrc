@@ -21,6 +21,6 @@ alias ls='ls -hN --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
-. "${HOME}/.cache/wal/colors.sh"
+[ -f $HOME/.cache/wal/colors.sh ] && . "${HOME}/.cache/wal/colors.sh"
 
 command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"

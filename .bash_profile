@@ -22,5 +22,5 @@ if [ -z $DISPLAY ] && [ "$(tty)" == "/dev/tty1" ]; then
 	pgrep -x dmw || exec startx
 fi
 
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+[ -f ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
+[ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
