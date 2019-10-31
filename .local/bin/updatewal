@@ -5,11 +5,10 @@
 readonly WAL_DIR="$HOME/.cache/wal"
 readonly LASTUPDATE_FILE="$WAL_DIR/lastupdate"
 readonly WALL_DIR=$1
-readonly TMP_FILE="/tmp/wall_files"
+readonly TMP_FILE=$(mktemp /tmp/updatewal.XXXXXX)
 
 CURRENT_DATE=$(date +"%Y%m%d")
 
-#[ ! -d $WALDIR ] && exit 1
 [ ! -f $LASTUPDATE_FILE ] && echo 0 > $LASTUPDATE_FILE
 
 PREVIOUSE_DATE=$(cat $LASTUPDATE_FILE)
@@ -17,12 +16,10 @@ PREVIOUSE_DATE=$(cat $LASTUPDATE_FILE)
 NEXT_UPDATE=$(expr $PREVIOUSE_DATE + 1)
 
 if [ $CURRENT_DATE -ge $NEXT_UPDATE ]; then
-	if [ -d $WAL_DIR ]; then
-		find $WAL_DIR -type f > $TMP_FILE
-		wal -i $(shuf -n 1 $TMP_FILE)
-		rm $TMP_FILE
-		echo $CURRENT_DATE > $LASTUPDATE_FILE
-	fi
+	find $WALL_DIR -type f > $TMP_FILE
+	wal -i $(shuf -n 1 $TMP_FILE)
+	rm $TMP_FILE
+	echo $CURRENT_DATE > $LASTUPDATE_FILE
 else
 	wal -R
 fi
