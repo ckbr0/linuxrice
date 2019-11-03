@@ -2,24 +2,25 @@
 
 # Update wal with a new wallpaper every day
 
-readonly WAL_DIR="$HOME/.cache/wal"
-readonly LASTUPDATE_FILE="$WAL_DIR/lastupdate"
-readonly WALL_DIR=$1
-readonly TMP_FILE=$(mktemp /tmp/updatewal.XXXXXX)
+[ -z "$1" ] && exit
 
-CURRENT_DATE=$(date +"%Y%m%d")
+wall_dir=$1
+lastupdate_file="$HOME/.cache/wal/lastupdate"
 
-[ ! -f $LASTUPDATE_FILE ] && echo 0 > $LASTUPDATE_FILE
+current_date=$(date +"%Y%m%d")
 
-PREVIOUSE_DATE=$(cat $LASTUPDATE_FILE)
+[ ! -f "$lastupdate_file" ] && echo 0 > $lastupdate_file
 
-NEXT_UPDATE=$(expr $PREVIOUSE_DATE + 1)
+previous_date=$(cat $lastupdate_file)
 
-if [ $CURRENT_DATE -ge $NEXT_UPDATE ]; then
-	find $WALL_DIR -type f > $TMP_FILE
-	wal -i $(shuf -n 1 $TMP_FILE)
-	rm $TMP_FILE
-	echo $CURRENT_DATE > $LASTUPDATE_FILE
+next_update=$(expr $previous_date + 1)
+
+if [ "$current_date" -ge "$next_update" ]; then
+	tmp_file=$(mktemp /tmp/updatewal.XXXXXX)
+	find $wall_dir -type f > $tmp_file
+	wal -i $(shuf -n 1 $tmp_file)
+	rm $tmp_file
+	echo $current_date > $lastupdate_file
 else
 	wal -R
 fi
