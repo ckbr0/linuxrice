@@ -4,8 +4,11 @@ setxkbmap si
 
 xset s 300 300 +dpms
 xset dpms 300 300 300
-xsidle.sh slock &
+
+#xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 updatewal $HOME/slike/ozadja
 
 compton -b
+
+xcalib -d :0 $HOME/.color/benq_ZOWIE_xl2411_user.icm
