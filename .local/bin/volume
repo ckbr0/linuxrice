@@ -1,0 +1,12 @@
+#!/bin/dash
+
+if [ "$1" = "-i" ]; then
+	pactl set-sink-volume @DEFAULT_SINK@ +1%
+	updatebar
+elif [ "$1" = "-d" ]; then
+	pactl set-sink-volume @DEFAULT_SINK@ -1%
+	updatebar
+elif [ "$1" = "-t" ]; then
+	amixer -q set Master toggle
+	updatebar
+fi

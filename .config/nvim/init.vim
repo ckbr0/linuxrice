@@ -8,24 +8,21 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'autozimu/LanguageClient-neovim', {
-	\ 'branch': 'next',
-	\ 'do': 'bash install.sh',
-	\ }
-
 " auto complete
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2', { 'do': ':UpdateRemotePlugins' }
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'Shougo/echodoc.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --clangd-completer' }
+Plug 'lervag/vimtex'
+
+" highlight sxhkd configuration files.
+Plug 'kovetskiy/sxhkd-vim'
 
 " navigation/search file
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf'
-Plug 'mcchrish/nnn.vim'
 
 call plug#end()
+
+set nopaste
+set clipboard+=unnamedplus
 
 " Tabs and spaces
 set tabstop=4		" Tab size..
@@ -65,33 +62,4 @@ syntax enable
 set termguicolors
 colorscheme apprentice
 
-autocmd BufEnter * call ncm2#enable_for_buffer() " Enable ncm2 for all buffers.
-let g:echodoc#enable_at_startup = 1
-
-" Register LPSs.
-let g:LanguageClient_serverCommands = {
-	\ 'python': ['pyls'],
-	\ 'cpp': ['clangd'],
-	\ 'go' : ['~/go/bin/gopls'],
-	\ }
-
-" Run gofmt and goimports on save.
-autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
-
-function SetLSPShortcuts()
-	nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-	nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-	nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-	nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-	nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-	nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-	nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-	nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-	nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-	nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-endfunction()
-
-augroup LSP
-	autocmd!
-	autocmd FileType python,cpp,c,go call SetLSPShortcuts()
-augroup END
+map <C-n> :NERDTreeToggle<CR>

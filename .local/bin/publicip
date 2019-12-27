@@ -1,0 +1,7 @@
+#!/bin/sh
+
+PUBLIC_IP=$(curl -s ifconfig.me/ip)
+CURRENT_DATE=$(date)
+
+echo "$CURRENT_DATE : $PUBLIC_IP" >> $HOME/razvoj/publicip
+echo "$PUBLIC_IP"

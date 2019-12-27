@@ -33,7 +33,7 @@ status() { \
 	echo "$delim"
 	
 	# Get volume and icon if mute
-	pamixer --get-mute | sed "s/false//;s/true//"
+	pamixer --get-mute | sed "s/false/\x06/;s/true//"
 	pamixer --get-volume	
 
 	echo "$delim"

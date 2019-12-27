@@ -7,8 +7,15 @@ xset dpms 300 300 300
 
 #xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
+dunst &
+
 updatewal $HOME/slike/ozadja
 
 compton -b
 
-xcalib -d :0 $HOME/.color/benq_ZOWIE_xl2411_user.icm
+sudo xiccd &
+
+dwmbar &
+
+# To put focus on the main monitor at the start
+xdotool mousemove 960 940
