@@ -9,11 +9,8 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " auto complete
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --clangd-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --go-completer --clangd-completer' }
 Plug 'lervag/vimtex'
-
-" highlight sxhkd configuration files.
-Plug 'kovetskiy/sxhkd-vim'
 
 " navigation/search file
 Plug 'scrooloose/nerdtree'
@@ -63,3 +60,9 @@ set termguicolors
 colorscheme apprentice
 
 map <C-n> :NERDTreeToggle<CR>
+
+" vimtex
+let g:vimtex_view_general_viewer = 'zathura'
+"let g:vimtex_view_method = 'mupdf'
+let g:vimtex_compiler_progname = 'nvr'
+let g:tex_flavor = 'latex'
