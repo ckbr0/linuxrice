@@ -11,11 +11,13 @@ dunst &
 
 updatewal $HOME/slike/ozadja
 
-compton -b
+picom -b -d :0
 
 sudo xiccd &
 
-dwmbar &
+dwm_bar.sh &
 
 # To put focus on the main monitor at the start
 xdotool mousemove 960 940
+
+devmon &

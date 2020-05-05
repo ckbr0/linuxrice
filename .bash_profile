@@ -2,19 +2,20 @@
 
 export RAZVOJ="$HOME/razvoj"
 export GOPATH="$RAZVOJ/go"
-export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$HOME/.local/bin:$GOBIN/"
+export DOTNET_ROOT=$HOME/dotnet
+export PATH="$PATH:$HOME/.local/bin:$GOPATH:$DOTNET_ROOT"
 
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
+export PAGER="less"
 
-export NNN_USE_EDITOR=1
-export NNN_RESTRICT_NAV_OPEN=1
-export NNN_OPS_PROG=1
+export GPG_TTY=$(tty)
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+export SUDO_ASKPASS=$HOME/.local/bin/dmenupass
 
 [ -f ~/.bashrc ] && source ~/.bashrc
 
@@ -22,5 +23,4 @@ if [ -z $DISPLAY ] && [ "$(tty)" == "/dev/tty1" ]; then
 	pgrep -x dmw || exec startx
 fi
 
-[ -f ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
-[ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
+source ~/.cache/wal/colors-tty.sh

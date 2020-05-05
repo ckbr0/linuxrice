@@ -1,0 +1,3 @@
+#!/bin/sh
+
+transmission-remote -a "$@" -w "$HOME/prenosi" && notify-send "⏬ Torrent added."
