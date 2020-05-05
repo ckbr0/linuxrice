@@ -11,7 +11,7 @@ dunst &
 
 updatewal $HOME/slike/ozadja
 
-picom -b -d :0
+picom -b
 
 sudo xiccd &
 
