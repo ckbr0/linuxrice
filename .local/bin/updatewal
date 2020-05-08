@@ -17,7 +17,8 @@ next_update=$(expr $previous_date + 1)
 
 if [ "$current_date" -ge "$next_update" ]; then
 	tmp_file=$(mktemp /tmp/updatewal.XXXXXX)
-	find $wall_dir -type f > $tmp_file
+	#find $wall_dir -type f > $tmp_file
+	find $wall_dir ! -path "*/\.git/*" -type f > $tmp_file
 	wal -i $(shuf -n 1 $tmp_file)
 	rm $tmp_file
 	echo $current_date > $lastupdate_file
