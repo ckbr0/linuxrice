@@ -3,9 +3,8 @@
 setxkbmap si
 
 xset s 300 300 +dpms
-xset dpms 300 300 300
-
-#xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
+#xset dpms 300 300 300
+#xss-lock -q slock &
 
 dunst &
 
@@ -13,7 +12,7 @@ updatewal $HOME/slike/ozadja
 
 picom -b
 
-sudo xiccd &
+#sudo xiccd &
 
 dwm_bar.sh &
 

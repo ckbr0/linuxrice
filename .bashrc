@@ -6,12 +6,19 @@
 shopt -s direxpand
 shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
 
-#export PS1='[\u@\h \W]\$ '
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-
 # Use bash-completion, if available
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
+[[ -f /usr/share/bash-completion/bash_completion ]] && \
+    source /usr/share/bash-completion/bash_completion
+
+[[ -f $HOME/.local/bin/git-prompt.sh ]] && \
+    source $HOME/.local/bin/git-prompt.sh
+
+export GIT_PS1_SHOWCOLORHINTS=true
+export GIT_PS1_SHOWDIRTYSTATE=true
+
+#export PS1='[\u@\h \W]\$ '
+export PS1='\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]$(__git_ps1)\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]'
+#export PROMPT_COMMAND='__git_ps1'
 
 export GPG_TTY=$(tty)
 
@@ -35,3 +42,4 @@ alias s='sxiv'
 
 export PF_INFO="ascii title os host kernel shell uptime memory"
 pfetch
+

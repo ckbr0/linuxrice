@@ -1,0 +1,5 @@
+#!/bin/sh
+
+lock
+
+sudo zzz
