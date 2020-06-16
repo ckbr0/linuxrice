@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#xset s activate
 slock &
-sleep 1
 xset dpms force off
 

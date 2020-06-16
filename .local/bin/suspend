@@ -2,8 +2,6 @@
 
 slock &
 
-#xset s activate
-
 sleep 1
 
 sudo zzz
