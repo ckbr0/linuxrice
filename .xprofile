@@ -3,20 +3,12 @@
 setxkbmap si
 
 xset s 300 300 +dpms
-#xset dpms 300 300 300
-#xss-lock -q slock &
-
-dunst &
+#xss-lock -q --ignore-sleep slock &
 
 updatewal $HOME/slike/ozadja
 
 picom -b
 
-#sudo xiccd &
-
-dwm_bar.sh &
-
-# To put focus on the main monitor at the start
-xdotool mousemove 960 940
+dwmbar &
 
 devmon &
