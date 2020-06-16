@@ -1,0 +1,7 @@
+#!/bin/bash
+
+firefox &
+
+sleep 2
+
+pywalfox update
