@@ -62,6 +62,11 @@ dwm.selbordercolor:  {color15}
 dwm.selbgcolor:      {color2}
 dwm.selfgcolor:      {color15}
 
+dmenu.highlightbackground:    {color0}
+dmenu.highlightforeground:    {color2}
+dmenu.selhighlightbackground: {color2}
+dmenu.selhighlightforeground: {color0}
+
 st.background:  {background}
 st.foreground:  {foreground}
 st.cursorColor: {cursor}
