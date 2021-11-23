@@ -1,0 +1,5 @@
+# Power
+%wheel ALL=(ALL) NOPASSWD: /bin/shutdown, /bin/reboot, /bin/zzz, /bin/ZZZ
+
+# Scaner
+%wheel ALL=(ALL) NOPASSWD: /bin/scanimage
