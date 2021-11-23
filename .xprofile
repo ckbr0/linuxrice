@@ -1,14 +1,19 @@
 #!\bin\sh
 
 setxkbmap si
+setxkbmap -option caps:escape
 
 xset s 300 300 +dpms
 #xss-lock -q --ignore-sleep slock &
 
 updatewal $HOME/slike/ozadja
 
-picom -b
+picom --experimental-backends -b
 
-dwmbar &
+#dwmbar &
+slstatus &
 
 devmon &
+
+xdotool mousemove 960 900
+

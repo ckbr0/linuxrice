@@ -5,9 +5,11 @@ export GOPATH="$RAZVOJ/go"
 export DOTNET_ROOT=$HOME/dotnet
 export PATH="$PATH:$HOME/.local/bin:$GOPATH:$DOTNET_ROOT"
 
+export AMONG_US=/home/ckbr/games/steam/steamapps/common/Among\ Us/
+
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="/bin/chrome"
 export READER="zathura"
 export PAGER="less"
 
@@ -24,3 +26,5 @@ if [ -z $DISPLAY ] && [ "$(tty)" == "/dev/tty1" ]; then
 fi
 
 source ~/.cache/wal/colors-tty.sh
+
+

@@ -16,9 +16,13 @@ shopt -s autocd #Allows you to cd into directory merely by typing the directory 
 export GIT_PS1_SHOWCOLORHINTS=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 
+export HISTCONTROL=ignoredups:erasedups
+
 #export PS1='[\u@\h \W]\$ '
 export PS1='\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]$(__git_ps1)\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]'
 #export PROMPT_COMMAND='__git_ps1'
+
+#export MANPAGER="sh -c 'less'"
 
 export GPG_TTY=$(tty)
 
@@ -26,7 +30,7 @@ alias sudo='sudo '
 
 alias e='$EDITOR'
 alias v='$EDITOR'
-alias V='sudo $EDITOR'
+alias V='sudoedit'
 
 alias gpg='gpg2'
 
@@ -39,7 +43,17 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
 alias s='sxiv'
+alias z='zathura'
+alias scan='scanimage -y 296.926 --format=jpeg'
 
-export PF_INFO="ascii title os host kernel shell uptime memory"
+alias tsm="transmission-remote"
+
+[[ -f $HOME/razvoj/esp/esp-idf/export.sh ]] && \
+    alias get_idf='. $HOME/razvoj/esp/esp-idf/export.sh'
+
+export PF_INFO="ascii title os host kernel shell uptime pkgs memory"
 pfetch
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 
